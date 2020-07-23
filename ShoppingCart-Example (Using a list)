@@ -1,0 +1,47 @@
+from IPython.display import clear_output
+
+cart = []
+
+# Add to Cart Function
+def addItem(item):
+    clear_output()
+    cart.append(item)
+# Remove from Cart Function
+def removeItem(item):
+    clear_output()
+    cart.remove(item)
+# Show Cart Function
+def showCart():
+    clear_output()
+    print("Here is your cart: ")
+    for item in cart:
+        print(item)
+# Clear Cart Function
+def clearCart():
+    clear_output()
+    print("Your cart is now empty")
+    cart.clear()
+    
+def shoppingCart():
+    while True:
+        response = input("You can: quit / add / remove / show / or clear")
+        
+        if response.lower() == 'quit':
+            print("Thanks for shopping here's your cart")
+            showCart()
+            break
+        elif response.lower() == 'add':
+            item = input("What would you like to add? ")
+            addItem(item)
+        elif response.lower() == 'remove':
+            showCart()
+            item = input("What item do you want to remove? ")
+            removeItem(item)
+            
+        elif response.lower() == 'show':
+            showCart()
+        elif response.lower() == 'clear':
+            clearCart()
+        else:
+            print("Sorry not a valid option - Please choose add/remove/show/or clear")
+shoppingCart()
